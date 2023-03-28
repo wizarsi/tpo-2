@@ -1,14 +1,4 @@
 package trig;
-
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
-
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-
 public class Sin {
     public double sin(double x, double eps) {
         if (Double.POSITIVE_INFINITY == x) return Double.POSITIVE_INFINITY;
