@@ -1,10 +1,5 @@
 package trig;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-
 public class Tan {
     private final Cos cos;
     private final Sin sin;
