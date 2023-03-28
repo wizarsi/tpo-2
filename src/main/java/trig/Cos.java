@@ -32,13 +32,4 @@ public class Cos {
         if (Math.abs(result) <= eps) return 0;
         return result;
     }
-
-    public void writeResToCSV(double x, double res, String file) {
-        String text = x + "," + res + "\n";
-        try {
-            Files.write(Paths.get(file), text.getBytes(), StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            System.out.println("Не удалось записать в файл");
-        }
-    }
 }

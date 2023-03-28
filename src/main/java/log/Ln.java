@@ -22,12 +22,4 @@ public class Ln {
         return sum * 2;
     }
 
-    public void writeResToCSV(double x, double res, String file) {
-        String text = x + "," + res + "\n";
-        try {
-            Files.write(Paths.get(file), text.getBytes(), StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            System.out.println("Не удалось записать в файл");
-        }
-    }
 }
