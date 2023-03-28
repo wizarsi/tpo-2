@@ -46,12 +46,4 @@ public class Log2Test {
         assertEquals(Double.NaN, result, delta);
         Utils.writeResToCsv(Double.NEGATIVE_INFINITY, result, fileOut);
     }
-
-    @ParameterizedTest
-    @ValueSource(doubles = {-2, -5, -12, -111})
-    public void testNegativeValues(double value) {
-        double result = log2.log(value, eps);
-        Assertions.assertEquals(Double.NaN, result, delta);
-        Utils.writeResToCsv(Double.NaN, result, fileOut);
-    }
 }

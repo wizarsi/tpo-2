@@ -30,10 +30,10 @@ public class LogMocks {
         return lnMock;
     }
 
-    public static Log logMock(int base, String fileOutName) {
+    public static Log logMock(String fileIn) {
         Log logMock = Mockito.mock(Log.class);
         try {
-            Reader logIn = new FileReader("src/main/resources/csv/in/" + fileOutName);
+            Reader logIn = new FileReader("src/main/resources/csv/in/" + fileIn);
             Iterable<CSVRecord> records = CSVFormat.DEFAULT.parse(logIn);
             records.forEach(record -> Mockito.when(logMock.log(Double.parseDouble(record.get(0)), eps)).thenReturn(Double.valueOf(record.get(1))));
             Mockito.when(logMock.log(Double.NaN, eps)).thenReturn(Double.NaN);
