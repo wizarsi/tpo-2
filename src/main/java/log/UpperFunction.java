@@ -1,12 +1,12 @@
 package log;
 
-public class LowerFunction {
+public class UpperFunction {
     private final Log log2;
     private final Log log5;
     private final Ln ln;
     private final Log log10;
 
-    public LowerFunction(Ln ln, Log log2, Log log5, Log log10) {
+    public UpperFunction(Ln ln, Log log2, Log log5, Log log10) {
         this.ln = ln;
         this.log2 = log2;
         this.log5 = log5;
