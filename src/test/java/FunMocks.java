@@ -29,7 +29,7 @@ public class FunMocks {
     public static UpperFunction upperFunctionMock() {
         UpperFunction upperFunctionMock = Mockito.mock(UpperFunction.class);
         try {
-            Reader lnIn = new FileReader("src/main/resources/csv/in/RightFunctionIn.csv");
+            Reader lnIn = new FileReader("src/main/resources/csv/in/upper_function_in.csv");
             Iterable<CSVRecord> records = CSVFormat.DEFAULT.parse(lnIn);
             records.forEach(record -> Mockito.when(upperFunctionMock.system(Double.parseDouble(record.get(0)), eps)).thenReturn(Double.valueOf(record.get(1))));
             Mockito.when(upperFunctionMock.system(Double.NaN, eps)).thenReturn(Double.NaN);
