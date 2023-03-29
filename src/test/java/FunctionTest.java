@@ -14,8 +14,8 @@ public class FunctionTest {
     private static final double delta = 0.5;
     private static final double eps = 0.001;
 
-    private final LowerFunction leftFunctionMock = FunMocks.leftFunctionMock();
-    private final UpperFunction rightFunctionMock = FunMocks.rightFunctionMock();
+    private final LowerFunction lowerFunctionMock = FunMocks.lowerFunctionMock();
+    private final UpperFunction upperFunctionMock = FunMocks.upperFunctionMock();
 
     private final Sin sin = new Sin();
     private final Cos cos = new Cos(sin);
@@ -36,7 +36,7 @@ public class FunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/SystemIn.csv")
     public void allMockTest(double value, double expected) {
-        function = new Function(leftFunctionMock, rightFunctionMock);
+        function = new Function(lowerFunctionMock, upperFunctionMock);
         double result = function.system(value, eps);
         assertEquals(expected, result, delta);
     }
@@ -44,7 +44,7 @@ public class FunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/SystemIn.csv")
     public void leftFunctionStubTest(double value, double expected) {
-        function = new Function(leftFunction, rightFunctionMock);
+        function = new Function(leftFunction, upperFunctionMock);
         double result = function.system(value, eps);
         assertEquals(expected, result, delta);
     }
@@ -52,7 +52,7 @@ public class FunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/SystemIn.csv")
     public void rightFunctionStubTest(double value, double expected) {
-        function = new Function(leftFunctionMock, rightFunction);
+        function = new Function(lowerFunctionMock, rightFunction);
         double result = function.system(value, eps);
         assertEquals(expected, result, delta);
     }

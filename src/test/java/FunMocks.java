@@ -11,33 +11,33 @@ import java.io.Reader;
 public class FunMocks {
     private static final double eps = 0.001;
 
-    public static LowerFunction leftFunctionMock() {
-        LowerFunction leftFunctionMock = Mockito.mock(LowerFunction.class);
+    public static LowerFunction lowerFunctionMock() {
+        LowerFunction lowerFunctionMock = Mockito.mock(LowerFunction.class);
         try {
             Reader lnIn = new FileReader("src/main/resources/csv/in/LeftFunctionIn.csv");
             Iterable<CSVRecord> records = CSVFormat.DEFAULT.parse(lnIn);
-            records.forEach(record -> Mockito.when(leftFunctionMock.system(Double.parseDouble(record.get(0)), eps)).thenReturn(Double.valueOf(record.get(1))));
-            Mockito.when(leftFunctionMock.system(Double.NaN, eps)).thenReturn(Double.NaN);
-            Mockito.when(leftFunctionMock.system(Double.POSITIVE_INFINITY, eps)).thenReturn(Double.POSITIVE_INFINITY);
-            Mockito.when(leftFunctionMock.system(Double.NEGATIVE_INFINITY, eps)).thenReturn(Double.NaN);
+            records.forEach(record -> Mockito.when(lowerFunctionMock.system(Double.parseDouble(record.get(0)), eps)).thenReturn(Double.valueOf(record.get(1))));
+            Mockito.when(lowerFunctionMock.system(Double.NaN, eps)).thenReturn(Double.NaN);
+            Mockito.when(lowerFunctionMock.system(Double.POSITIVE_INFINITY, eps)).thenReturn(Double.POSITIVE_INFINITY);
+            Mockito.when(lowerFunctionMock.system(Double.NEGATIVE_INFINITY, eps)).thenReturn(Double.NaN);
         } catch (IOException e) {
             System.err.println("No such file");
         }
-        return leftFunctionMock;
+        return lowerFunctionMock;
     }
 
-    public static UpperFunction rightFunctionMock() {
-        UpperFunction rightFunctionMock = Mockito.mock(UpperFunction.class);
+    public static UpperFunction upperFunctionMock() {
+        UpperFunction upperFunctionMock = Mockito.mock(UpperFunction.class);
         try {
             Reader lnIn = new FileReader("src/main/resources/csv/in/RightFunctionIn.csv");
             Iterable<CSVRecord> records = CSVFormat.DEFAULT.parse(lnIn);
-            records.forEach(record -> Mockito.when(rightFunctionMock.system(Double.parseDouble(record.get(0)), eps)).thenReturn(Double.valueOf(record.get(1))));
-            Mockito.when(rightFunctionMock.system(Double.NaN, eps)).thenReturn(Double.NaN);
-            Mockito.when(rightFunctionMock.system(Double.POSITIVE_INFINITY, eps)).thenReturn(Double.POSITIVE_INFINITY);
-            Mockito.when(rightFunctionMock.system(Double.NEGATIVE_INFINITY, eps)).thenReturn(Double.NaN);
+            records.forEach(record -> Mockito.when(upperFunctionMock.system(Double.parseDouble(record.get(0)), eps)).thenReturn(Double.valueOf(record.get(1))));
+            Mockito.when(upperFunctionMock.system(Double.NaN, eps)).thenReturn(Double.NaN);
+            Mockito.when(upperFunctionMock.system(Double.POSITIVE_INFINITY, eps)).thenReturn(Double.POSITIVE_INFINITY);
+            Mockito.when(upperFunctionMock.system(Double.NEGATIVE_INFINITY, eps)).thenReturn(Double.NaN);
         } catch (IOException e) {
             System.err.println("No such file");
         }
-        return rightFunctionMock;
+        return upperFunctionMock;
     }
 }
