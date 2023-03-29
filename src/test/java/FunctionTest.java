@@ -28,8 +28,8 @@ public class FunctionTest {
     private final Log log2 = new Log(ln, 2);
     private final Log log5 = new Log(ln, 5);
     private final Log log10 = new Log(ln, 10);
-    private final LowerFunction leftFunction = new LowerFunction(cos, sec, tan, sin, csc, cot);
-    private final UpperFunction rightFunction = new UpperFunction(ln, log2, log5, log10);
+    private final LowerFunction lowerFunction = new LowerFunction(cos, sec, tan, sin, csc, cot);
+    private final UpperFunction upperFunction = new UpperFunction(ln, log2, log5, log10);
 
     private Function function;
 
@@ -43,16 +43,16 @@ public class FunctionTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/SystemIn.csv")
-    public void leftFunctionStubTest(double value, double expected) {
-        function = new Function(leftFunction, upperFunctionMock);
+    public void lowerFunctionStubTest(double value, double expected) {
+        function = new Function(lowerFunction, upperFunctionMock);
         double result = function.system(value, eps);
         assertEquals(expected, result, delta);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/SystemIn.csv")
-    public void rightFunctionStubTest(double value, double expected) {
-        function = new Function(lowerFunctionMock, rightFunction);
+    public void upperFunctionStubTest(double value, double expected) {
+        function = new Function(lowerFunctionMock, upperFunction);
         double result = function.system(value, eps);
         assertEquals(expected, result, delta);
     }
@@ -60,7 +60,7 @@ public class FunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/SystemIn.csv")
     public void allStubTest(double value, double expected) {
-        function = new Function(leftFunction, rightFunction);
+        function = new Function(lowerFunction, upperFunction);
         double result = function.system(value, eps);
         assertEquals(expected, result, delta);
     }

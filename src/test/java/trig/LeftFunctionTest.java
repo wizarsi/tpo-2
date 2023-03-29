@@ -28,14 +28,14 @@ public class LeftFunctionTest {
     private final Tan tan = new Tan(cos, sin);
     private final Cot cot = new Cot(cos, sin);
 
-    private LowerFunction leftFunction;
+    private LowerFunction lowerFunction;
     private static final String file = "src/main/resources/csv/out/LeftFunctionOut.csv";
 
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void allMockTest(double value, double expected) {
-        leftFunction = new LowerFunction(cosMock, secMock, tanMock, sinMock, cscMock, cotMock);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cosMock, secMock, tanMock, sinMock, cscMock, cotMock);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -43,8 +43,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void cosStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cos, secMock, tanMock, sinMock, cscMock, cotMock);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cos, secMock, tanMock, sinMock, cscMock, cotMock);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -52,8 +52,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void secStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cosMock, sec, tanMock, sinMock, cscMock, cotMock);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cosMock, sec, tanMock, sinMock, cscMock, cotMock);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -61,8 +61,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void tanStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cosMock, secMock, tan, sinMock, cscMock, cotMock);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cosMock, secMock, tan, sinMock, cscMock, cotMock);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -70,8 +70,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void sinStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cosMock, secMock, tanMock, sin, cscMock, cotMock);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cosMock, secMock, tanMock, sin, cscMock, cotMock);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -79,8 +79,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void cscStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cosMock, secMock, tanMock, sinMock, csc, cotMock);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cosMock, secMock, tanMock, sinMock, csc, cotMock);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -88,8 +88,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void cotStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cosMock, secMock, tanMock, sinMock, cscMock, cot);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cosMock, secMock, tanMock, sinMock, cscMock, cot);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
@@ -97,8 +97,8 @@ public class LeftFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/csv/in/LeftFunctionIn.csv")
     public void allStubTest(double value, double expected) {
-        leftFunction = new LowerFunction(cos, sec, tan, sin, csc, cot);
-        double result = leftFunction.system(value, eps);
+        lowerFunction = new LowerFunction(cos, sec, tan, sin, csc, cot);
+        double result = lowerFunction.system(value, eps);
         assertEquals(expected, result, delta);
         Utils.writeResToCsv(value, result, file);
     }
